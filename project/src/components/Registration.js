@@ -9,6 +9,7 @@ class Registration extends Component{
         confirmedPassword: '',
         email: ''
     }
+    
     render(){
         const {username, password, confirmedPassword, email} = this.state;
         return (
