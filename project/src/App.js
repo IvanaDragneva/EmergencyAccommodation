@@ -1,15 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Registration from './components/Registration'
-import Login from "./components/Login";
-import WelcomePage from "./components/Welcome-page";
+import Questionnaire from './containers/Questionnaire';
 
 function App() {
-    return (
-        <div className="App">
-            <Login/>
-        </div>
-    );
+  return (
+    <div className="App">
+    <Questionnaire/>
+    </div>
+  );
 }
 
 export default App;
