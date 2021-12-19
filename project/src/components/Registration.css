@@ -1,0 +1,22 @@
+h1{
+  background-color:#C1E1C1;
+  font-weight: bold;
+  width: 60%;
+margin-left: 20%;
+margin-right: 20%
+}
+button{
+  margin-top: 30px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%
+}
+.p-5{
+  background-color: #C1E1C1;
+  border-radius: 20px;
+}
+label{
+  color: #027524;
+  font-weight: bold;
+}
+
