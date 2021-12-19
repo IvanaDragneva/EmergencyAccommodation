@@ -17,6 +17,7 @@ class WelcomePage extends Component {
                         </Col>
                         <Col>
                             <Button variant={"info"}>Register</Button>
+                            {/*blah blah blah*/}
                         </Col>
                     </Row>
                 </Container>
