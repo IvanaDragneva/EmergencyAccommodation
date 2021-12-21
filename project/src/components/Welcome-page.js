@@ -19,7 +19,7 @@ class WelcomePage extends Component {
                                 <Nav.Link>News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
-
+                                <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
                                 <Nav.Link>Log in</Nav.Link>
