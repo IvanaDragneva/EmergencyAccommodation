@@ -18,7 +18,7 @@ class WelcomePage extends Component {
                                 <Nav.Link>Home</Nav.Link>
                                 <Nav.Link>News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
-                                <Nav.Link>Hospitals</Nav.Link> {/make dropdown/}
+                                <Nav.Link>Hospitals</Nav.Link>
 
                             </Nav>
                             <Nav className={"justify-content-end"}>
