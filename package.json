@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/iskrabozhkova/EmergencyAccommodation/issues"
   },
-  "homepage": "https://github.com/iskrabozhkova/EmergencyAccommodation#readme"
+  "homepage": "https://github.com/iskrabozhkova/EmergencyAccommodation#readme",
+  "dependencies": {}
 }

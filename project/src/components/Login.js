@@ -1,13 +1,24 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import axios from 'axios'
 
-class Login extends Component {
-    state={
-        username: '',
-        password: '',
-    }
-    render(){
-        const {username, password} = this.state;
+function Login(){
+    const [firstName, setFirstName] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = (event) => {
+        event.preventDefault();
+         axios({
+             method: "POST",
+             data: {
+                 firstName: firstName,
+                 password: password,
+             },
+             withCredentials: true,
+             url: "http://localhost:3001/api/users/login"
+         }).then((res) => console.log(res))
+     }
+  
         return (
             <div>
                 <Container>
@@ -16,16 +27,26 @@ class Login extends Component {
                         <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                             <Form>
                                 <Form.Group controlId="formBasicEmail">
+
+                                    <Form.Label>First name</Form.Label>
+                                    <Form.Control 
+                                    type="name" 
+                                    placeholder="Enter username"
+                                    onChange={(e) => {setFirstName(e.target.value)}}  />
                                     <Form.Label>Username</Form.Label>
                                     <Form.Control type="name" placeholder="Enter username" />
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
+                                    <Form.Control 
+                                    type="password" 
+                                    placeholder="Password" 
+                                    onChange={(e) => {setPassword(e.target.value)}} />
                                     <Form.Control type="password" placeholder="Enter password" />
                                 </Form.Group>
 
-                                <Button variant="success btn-block" type="submit">
+                                <Button variant="success btn-block" type="submit" onClick={login}>
                                     Log in
                                 </Button>
                             </Form>
@@ -34,7 +55,7 @@ class Login extends Component {
                 </Container>
             </div>
         )
-    }
 }
 
 export default Login;
+

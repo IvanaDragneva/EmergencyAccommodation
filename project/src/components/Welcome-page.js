@@ -1,6 +1,8 @@
 import './Welcome-page.css';
 import React, {Component} from 'react';
 import {Container, Navbar, Nav} from "react-bootstrap";
+import Login from './Login';
+import Registration from './Registration';
 
 class WelcomePage extends Component {
     render() {
@@ -22,8 +24,8 @@ class WelcomePage extends Component {
                                 <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
-                                <Nav.Link>Log in</Nav.Link>
-                                <Nav.Link>Register</Nav.Link>
+                                <Nav.Link href="/login">Log in</Nav.Link>
+                                <Nav.Link href="/registration">Register</Nav.Link>
                             </Nav>
 
                         </Navbar.Collapse>
