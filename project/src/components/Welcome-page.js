@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Container, Navbar, Nav} from "react-bootstrap";
 import Login from './Login';
 import Registration from './Registration';
+import { Link } from "react-router-dom"
 
 class WelcomePage extends Component {
     render() {
@@ -17,9 +18,23 @@ class WelcomePage extends Component {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link>Home</Nav.Link>
+                                <Nav.Link>
+                                    <Link to="WelcomePage">Home</Link>
+                                </Nav.Link>
                                 <Nav.Link>News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
+                                <Nav.Link>
+                                    <Link to="Hospitals">Hospitals</Link>
+                                </Nav.Link>
+
+                            </Nav>
+                            <Nav className={"justify-content-end"}>
+                                <Nav.Link>
+                                    <Link to="Login">Log in</Link>
+                                </Nav.Link>
+                                <Nav.Link>
+                                    <Link to="Registration">Register</Link>
+                                </Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
@@ -27,7 +42,6 @@ class WelcomePage extends Component {
                                 <Nav.Link href="/login">Log in</Nav.Link>
                                 <Nav.Link href="/registration">Register</Nav.Link>
                             </Nav>
-
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
