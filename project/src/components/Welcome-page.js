@@ -35,6 +35,12 @@ class WelcomePage extends Component {
                                 <Nav.Link>
                                     <Link to="Registration">Register</Link>
                                 </Nav.Link>
+                                <Nav.Link>Hospitals</Nav.Link>
+                                <Nav.Link>Hospitals</Nav.Link>
+                            </Nav>
+                            <Nav className={"justify-content-end"}>
+                                <Nav.Link href="/login">Log in</Nav.Link>
+                                <Nav.Link href="/registration">Register</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

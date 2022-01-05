@@ -1,11 +1,11 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Registration from './components/Registration'
 import Questionnaire from './containers/Questionnaire';
-import Login from "./components/Login";
+import Login from './components/Login';
 import WelcomePage from './components/Welcome-page';
 import Hospitals from './components/Hospitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
@@ -19,7 +19,8 @@ function App() {
         <Route path='/Registration' element={<Registration/>}/>
       </Routes>
       </Router>
-    
+    <Login/>
+    <Registration/>
     </div>
   );
 }
