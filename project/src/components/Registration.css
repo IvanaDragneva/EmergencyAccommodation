@@ -19,4 +19,7 @@ label{
   color: #027524;
   font-weight: bold;
 }
+.error{
+  color: rgb(163, 64, 64);
+}
 
