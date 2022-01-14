@@ -15,8 +15,9 @@ h1{
     margin-right: 30%
   }
   .p-5{
-    background-color: #f2f8f2;
+    background-color: white;
     border-radius: 20px;
+    width: 800px;
   }
   label{
     color: #027524; 

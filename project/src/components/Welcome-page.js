@@ -1,10 +1,23 @@
 import './Welcome-page.css';
 import React, {Component} from 'react';
+import {Container, Navbar, Nav, Image, Button} from "react-bootstrap";
+//import axios from 'axios'
 import {Container, Navbar, Nav} from "react-bootstrap";
 import Login from './Login';
 import Registration from './Registration';
 import { Link } from "react-router-dom"
 
+// const authToken = localStorage.getItem('access-token');
+// console.log(authToken);
+// const logout = () => {
+//     axios({
+//         method: "POST",
+//         headers: {
+//             'access-token': authToken
+//         },
+//         url: "http://localhost:3001/api/users/logout"
+//     })
+// }
 class WelcomePage extends Component {
     render() {
         return (
