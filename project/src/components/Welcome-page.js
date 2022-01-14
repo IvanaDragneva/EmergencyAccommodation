@@ -2,6 +2,10 @@ import './Welcome-page.css';
 import React, {Component} from 'react';
 import {Container, Navbar, Nav, Image, Button} from "react-bootstrap";
 //import axios from 'axios'
+import {Container, Navbar, Nav} from "react-bootstrap";
+import Login from './Login';
+import Registration from './Registration';
+import { Link } from "react-router-dom"
 
 // const authToken = localStorage.getItem('access-token');
 // console.log(authToken);
@@ -27,9 +31,23 @@ class WelcomePage extends Component {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link>Home</Nav.Link>
+                                <Nav.Link>
+                                    <Link to="WelcomePage">Home</Link>
+                                </Nav.Link>
                                 <Nav.Link>News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
+                                <Nav.Link>
+                                    <Link to="Hospitals">Hospitals</Link>
+                                </Nav.Link>
+
+                            </Nav>
+                            <Nav className={"justify-content-end"}>
+                                <Nav.Link>
+                                    <Link to="Login">Log in</Link>
+                                </Nav.Link>
+                                <Nav.Link>
+                                    <Link to="Registration">Register</Link>
+                                </Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
