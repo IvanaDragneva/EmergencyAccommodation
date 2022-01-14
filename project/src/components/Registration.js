@@ -3,6 +3,7 @@ import { Container, Row,Col, Form, Button} from 'react-bootstrap'
 import './Registration.css'
 import axios from 'axios'
 import validation from './registerValidation'
+import { Navigate } from 'react-router-dom'
 
 function Registration() {
     const [firstName, setFirstName] = useState("");
@@ -11,6 +12,7 @@ function Registration() {
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState({});
+    const [isRegistered, setIsRegistered] = useState(false);
 
    const register = (event) => {
        event.preventDefault();
@@ -26,9 +28,16 @@ function Registration() {
             },
             withCredentials: true,
             url: "http://localhost:3001/api/users/registration"
-        }).then((res) => console.log(res))
+        })
+        .then((res) => {
+            if (res.status === 201) {
+                setIsRegistered(true); 
+              }
+         })
     }
-
+    if(isRegistered){
+        return <Navigate to="/login"/>
+    }
 
         return (
           <div>
