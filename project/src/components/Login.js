@@ -37,11 +37,14 @@ function Login(){
                         <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                             <Form>
                                 <Form.Group controlId="formBasicEmail">
+
                                     <Form.Label>First name</Form.Label>
                                     <Form.Control 
                                     type="name" 
                                     placeholder="Enter username"
                                     onChange={(e) => {setFirstName(e.target.value)}}  />
+                                    <Form.Label>Username</Form.Label>
+                                    <Form.Control type="name" placeholder="Enter username" />
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicPassword">
@@ -50,6 +53,7 @@ function Login(){
                                     type="password" 
                                     placeholder="Password" 
                                     onChange={(e) => {setPassword(e.target.value)}} />
+                                    <Form.Control type="password" placeholder="Enter password" />
                                 </Form.Group>
 
                                 <Button variant="success btn-block" type="submit" onClick={login}>
