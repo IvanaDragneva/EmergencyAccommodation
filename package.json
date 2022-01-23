@@ -17,5 +17,7 @@
     "url": "https://github.com/iskrabozhkova/EmergencyAccommodation/issues"
   },
   "homepage": "https://github.com/iskrabozhkova/EmergencyAccommodation#readme",
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.25.0"
+  }
 }
