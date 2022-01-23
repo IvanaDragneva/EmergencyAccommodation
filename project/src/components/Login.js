@@ -20,10 +20,14 @@ function Login(){
              url: "http://localhost:3001/api/users/login"
          })
          .then((res) => {
+             console.log(res);
             if (res.status === 201) {
                 setIsLogged(true); 
               }
+            const token = res.data;
+            localStorage.setItem('auth-token', token);
          })
+
         
      }
      if(isLogged){
@@ -43,17 +47,14 @@ function Login(){
                                     type="name" 
                                     placeholder="Enter username"
                                     onChange={(e) => {setFirstName(e.target.value)}}  />
-                                    <Form.Label>Username</Form.Label>
-                                    <Form.Control type="name" placeholder="Enter username" />
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control 
                                     type="password" 
-                                    placeholder="Password" 
+                                    placeholder="Enter password"
                                     onChange={(e) => {setPassword(e.target.value)}} />
-                                    <Form.Control type="password" placeholder="Enter password" />
                                 </Form.Group>
 
                                 <Button variant="success btn-block" type="submit" onClick={login}>
