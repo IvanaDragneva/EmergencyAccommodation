@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 
 function Login(){
     const [firstName, setFirstName] = useState("");
     const [password, setPassword] = useState("");
+    const [isLogged, setIsLogged] = useState(false);
 
     const login = (event) => {
         event.preventDefault();
@@ -16,9 +18,17 @@ function Login(){
              },
              withCredentials: true,
              url: "http://localhost:3001/api/users/login"
-         }).then((res) => console.log(res))
+         })
+         .then((res) => {
+            if (res.status === 201) {
+                setIsLogged(true); 
+              }
+         })
+        
      }
-  
+     if(isLogged){
+         return <Navigate to="/welcome-page-registered"/>
+     }
         return (
             <div>
                 <Container>

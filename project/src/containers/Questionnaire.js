@@ -1,15 +1,33 @@
-import React from 'react';
+import React,  {useState} from 'react';
 import { Container, Row,Col, Form, Button} from 'react-bootstrap'
 import './Questionnaire.css'
 
 const Questionnaire = () => {
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [date, setDate] = useState("");
     return(
         <div>
             <Container>
-                <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Questionnaire</h1>
+                {/*<h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Questionnaire</h1>*/}
                 <Row className="mt-5">
-                <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+                <Col lg={5} md={6} sm={12} className="p-5 m-auto">
                 <Form>
+                <Form.Label>Enter your name</Form.Label>
+                <Form.Control 
+                      type="name" 
+                      placeholder="Enter username"
+                      onChange={(e) => {setFirstName(e.target.value)}}  />
+                <Form.Label>Enter email</Form.Label>
+                <Form.Control 
+                            type="email" 
+                            placeholder="Enter email"
+                            onChange={(e) => {setEmail(e.target.value)}}  />
+                <Form.Label>Enter date</Form.Label>
+                      <Form.Control 
+                            type="date" 
+                            placeholder="Enter date"
+                            onChange={(e) => {setDate(e.target.value)}}  />
                 <Form.Label>Have you had any of these symptoms?</Form.Label>
                 {['checkbox'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
@@ -42,10 +60,6 @@ const Questionnaire = () => {
                           <Form.Check type={type} id={'no'} label={'no'}/>
                         </div>
                       ))}
-
-                    <Button variant="success btn-block" type="submit">
-                        Submit
-                    </Button>
                 </Form>
             </Col>
         </Row>
