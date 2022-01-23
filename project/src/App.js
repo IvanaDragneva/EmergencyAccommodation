@@ -13,14 +13,12 @@ function App() {
       <Router>
       <WelcomePage/>
       <Routes>
-        <Route path='/' element={<WelcomePage/>}/>
+        <Route path='/Home' element={<WelcomePage/>}/>
         <Route path='/Hospitals' element={<Hospitals/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Registration' element={<Registration/>}/>
       </Routes>
       </Router>
-    <Login/>
-    <Registration/>
     </div>
   );
 }
