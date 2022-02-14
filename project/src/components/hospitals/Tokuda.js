@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import {Button, Modal, Container, Row, Col, Form} from "react-bootstrap";
-import './Tokuda.css'
+// import './Tokuda.css'
 //import Questionnaire from '../../containers/Questionnaire';
 import picture from '../../pictures/tokuda.png'
 import Image from 'react-bootstrap/Image'

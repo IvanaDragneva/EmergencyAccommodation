@@ -1,14 +1,16 @@
-import './Welcome-page.css';
+import styles from  './Welcome-page.module.css';
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import backgroundImg from "../pictures/main-page.png";
 import {Container, Navbar, Nav} from "react-bootstrap";
 import Login from './Login';
 import Registration from './Registration';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 class WelcomePage extends Component {
     render() {
         return (
-            <div>
+            <div className={styles.apply}>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
                         <Navbar.Toggle aria-controls="navbarScroll" />

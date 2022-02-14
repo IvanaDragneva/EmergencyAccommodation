@@ -7,18 +7,18 @@ import WelcomePage from './components/Welcome-page';
 import Hospitals from './components/Hospitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-import './App.css';
+//import './App.css';
 
 
-const RouterApp = () => {
-  let routes = useRoutes([
-  //{ path: "/", element: <WelcomePageNotRegistered /> },
-  //{ path: "/welcome-page-registered", element: <WelcomePage /> },
-    { path: "/login", element: <Login /> },
-    { path: "/registration", element: <Registration /> },
-  ]);
-  return routes;
-};
+// const RouterApp = () => {
+//   let routes = useRoutes([
+//   //{ path: "/", element: <WelcomePageNotRegistered /> },
+//   //{ path: "/welcome-page-registered", element: <WelcomePage /> },
+//     { path: "/login", element: <Login /> },
+//     { path: "/registration", element: <Registration /> },
+//   ]);
+//   return routes;
+// };
 function App() {
   return (
     <div className="App">
