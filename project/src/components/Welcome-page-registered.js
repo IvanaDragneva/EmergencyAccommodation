@@ -1,25 +1,15 @@
-import './Welcome-page-registered.css';
+//import './Welcome-page-registered.css';
 import React, {Component} from 'react';
 import {Container, Navbar, Nav, Image, Button, NavDropdown} from "react-bootstrap";
 import {logout} from './logout'
 
-//import axios from 'axios'
 
-// const authToken = localStorage.getItem('access-token');
-// console.log(authToken);
-// const logout = () => {
-//     axios({
-//         method: "POST",
-//         headers: {
-//             'access-token': authToken
-//         },
-//         url: "http://localhost:3001/api/users/logout"
-//     })
-// }
 class WelcomePage extends Component {
     render() {
         return (
-            <div>
+            <div style={{ 
+                backgroundImage: `url("../pictures/main-page.png")` 
+              }}>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,13 +20,13 @@ class WelcomePage extends Component {
                                 navbarScroll
                             >
                                 <Nav.Link>Home</Nav.Link>
-                                <Nav.Link>News</Nav.Link>
+                                <Nav.Link href="/news">News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
                                 <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
-                                <Nav.Link onClick={logout}>Logout</Nav.Link>
-                                <Nav.Link>Change password</Nav.Link>
+                                <Nav.Link  href="/" onClick={logout}>Logout</Nav.Link>
+                                <Nav.Link href="/update">Change password</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

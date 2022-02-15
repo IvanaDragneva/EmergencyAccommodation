@@ -1,23 +1,40 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Button, Modal, Container, Row, Col, Form} from "react-bootstrap";
 import './Tokuda.css'
-//import Questionnaire from '../../containers/Questionnaire';
 import picture from '../../pictures/tokuda.png'
 import Image from 'react-bootstrap/Image'
 import axios from 'axios';
-
+import CommentForm from '../CommentForm'
 
 function Tokuda(){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [freeBeds, setFreeBeds] = useState(100);
-    const [covidPatients, setCovidPatients] = useState(4);
+    const [freeBeds, setFreeBeds] = useState(0);
+    const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
+ 
+
+    const getBeds = () => {
+        axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:3001/api/bookings/tokuda"
+        })
+        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+    }
+    const updateBeds = () => {
+        axios({
+            method: "PUT",
+            withCredentials: true,
+            url: "http://localhost:3001/api/bookings/tokuda"
+        });
+    }
 
     function update(){
+        updateBeds();
         return setFreeBeds(freeBeds - 1)
     }
      const bookBed = (event) => {
@@ -36,14 +53,17 @@ function Tokuda(){
         return (
             <div>
             <Container>
-                    <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Acibadem City Clinic Tokuda Hospital</h1>
+            <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Acibadem City Clinic Tokuda Hospital</h1>
+            <Row>
+            <Col>
+                    
                 <ul>
                     <li><b>Description:</b> Acibadem City Clinic Tokuda Hospital is the largest medical facility in Bulgaria, 
                         built and developed with private investments. It was opened in 2006 as part of a Japanese medical group, 
                         owned by the physician and entrepreneur Dr. Torao Tokuda. Since 2016 Tokuda Hospital is part of the largest 
                         hospital group in Bulgaria – Acibadem City Clinic.</li>
-                    <li><b>Number of free beds in the hospital:</b> {freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {covidPatients} </li>
+                    <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
+                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed
@@ -121,10 +141,14 @@ function Tokuda(){
                     </Modal.Footer>
                     </Modal>
                 </ul>
+                </Col>
+                <Col>
+                <CommentForm></CommentForm>
+                </Col>
+                </Row>
                 </Container>
             </div>
         );
 }
-
 
 export default Tokuda;

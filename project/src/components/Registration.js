@@ -12,7 +12,8 @@ function Registration() {
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState({});
-    const [isRegistered, setIsRegistered] = useState(false);
+    //const [isRegistered, setIsRegistered] = useState(false);
+    const [isRegistered, setIsRegistered] = useState("");
 
    const register = (event) => {
        event.preventDefault();
@@ -31,11 +32,16 @@ function Registration() {
         })
         .then((res) => {
             if (res.status === 201) {
-                setIsRegistered(true); 
+                setIsRegistered("Successfully registered!"); 
               }
+            if(res.data.message === 'Password and confirmed password are not the same!'){
+                setIsRegistered(res.data.message);
+            }else if(res.data.message === 'User with such email already exists!'){
+                setIsRegistered(res.data.message);
+            }
          })
     }
-    if(isRegistered){
+    if(isRegistered === 'Successfully registered!'){
         return <Navigate to="/login"/>
     }
 
@@ -92,6 +98,7 @@ function Registration() {
                       <Button variant="success btn-block" type="submit" onClick={register}>
                           Submit
                       </Button>
+                      {isRegistered}
                   </Form>
               </Col>
           </Row>

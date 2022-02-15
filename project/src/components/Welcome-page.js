@@ -1,19 +1,7 @@
-import './Welcome-page.css';
 import React, {Component} from 'react';
-import {Container, Navbar, Nav, Image, Button} from "react-bootstrap";
-//import axios from 'axios'
+import {Container, Navbar, Nav} from "react-bootstrap";
+import BackgroundImage from './BackgroundImage';
 
-// const authToken = localStorage.getItem('access-token');
-// console.log(authToken);
-// const logout = () => {
-//     axios({
-//         method: "POST",
-//         headers: {
-//             'access-token': authToken
-//         },
-//         url: "http://localhost:3001/api/users/logout"
-//     })
-// }
 class WelcomePage extends Component {
     render() {
         return (
@@ -37,6 +25,7 @@ class WelcomePage extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+                <BackgroundImage/>
             </div>
         );
     }
