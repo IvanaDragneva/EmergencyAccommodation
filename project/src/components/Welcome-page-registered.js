@@ -1,8 +1,7 @@
-//import './Welcome-page-registered.css';
 import React, {Component} from 'react';
 import {Container, Navbar, Nav, Image, Button, NavDropdown} from "react-bootstrap";
 import {logout} from './logout'
-
+import BackgroundImage from './BackgroundImage';
 
 class WelcomePage extends Component {
     render() {
@@ -31,6 +30,7 @@ class WelcomePage extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+                <BackgroundImage/>
             </div>
         );
     }
