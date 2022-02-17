@@ -17,7 +17,6 @@ import About from './components/About';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ChangePassword from "./components/ChangePassword";
 import './App.css';
-import Tokuda from './components/hospitals/Tokuda'
 import News from './components/News'
 import NavigationBar from "./components/NavigationBar";
 
