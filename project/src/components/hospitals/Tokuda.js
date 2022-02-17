@@ -11,7 +11,6 @@ function Tokuda(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [freeBeds, setFreeBeds] = useState(0);
-    const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
@@ -23,7 +22,7 @@ function Tokuda(){
             withCredentials: true,
             url: "http://localhost:3001/api/bookings/tokuda"
         })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+        .then((res) =>setFreeBeds(res.data[0].freeBeds));
     }
     const updateBeds = () => {
         axios({
@@ -63,7 +62,6 @@ function Tokuda(){
                         owned by the physician and entrepreneur Dr. Torao Tokuda. Since 2016 Tokuda Hospital is part of the largest 
                         hospital group in Bulgaria – Acibadem City Clinic.</li>
                     <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed

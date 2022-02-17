@@ -17,7 +17,7 @@ class NavigationBarLogged extends Component {
                             >
                                 <Nav.Link>Home</Nav.Link>
                                 <Nav.Link href="/news">News</Nav.Link>
-                                <Nav.Link>About</Nav.Link>
+                                <Nav.Link href="/about">About</Nav.Link>
                                 <Nav.Link href="/Hospitals">Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>

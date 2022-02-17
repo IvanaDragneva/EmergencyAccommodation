@@ -11,7 +11,6 @@ function Nadezhda(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [freeBeds, setFreeBeds] = useState(0);
-    const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
@@ -21,15 +20,15 @@ function Nadezhda(){
         axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/nadezhda"
         })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+        .then((res) =>setFreeBeds(res.data[0].freeBeds));
     }
     const updateBeds = () => {
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/nadezhda"
         });
     }
 
@@ -46,7 +45,7 @@ function Nadezhda(){
                   date: date,
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/nadezhda"
           }).then((res) => console.log(res))
       }
   
@@ -60,7 +59,6 @@ function Nadezhda(){
                 <ul>
                     <li><b>Description:</b> Since 2014, Nadezhda Hospital has won the WhatClinic Service Award every year. The prize is awarded based on the evaluation of patients for high quality services. It is based on many factors of patient care and experience, such as the quality of interaction with potential and existing patients, as well as their feedback and reviews before and after treatment. Includes data on clinics that respond immediately to phone and email inquiries.</li>
                     <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed

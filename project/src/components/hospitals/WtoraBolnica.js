@@ -21,7 +21,7 @@ function WtoraBolnica(){
         axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/wtora-bolnica"
         })
         .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
     }
@@ -29,7 +29,7 @@ function WtoraBolnica(){
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/wtora-bolnica"
         });
     }
 
@@ -46,7 +46,7 @@ function WtoraBolnica(){
                   date: date,
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/wtora-bolnica"
           }).then((res) => console.log(res))
       }
   

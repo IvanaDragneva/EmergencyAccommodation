@@ -14,8 +14,8 @@ class NavigationBar extends Component {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link>Home</Nav.Link>
-                                <Nav.Link>About</Nav.Link>
+                                <Nav.Link href="/">Home</Nav.Link>
+                                <Nav.Link href="/about">About</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
                                 <Nav.Link href="/login">Log in</Nav.Link>

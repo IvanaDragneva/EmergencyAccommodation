@@ -11,7 +11,6 @@ function IvanRilski(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [freeBeds, setFreeBeds] = useState(0);
-    const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
@@ -21,15 +20,15 @@ function IvanRilski(){
         axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/ivan-rilski"
         })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+        .then((res) =>setFreeBeds(res.data[0].freeBeds) );
     }
     const updateBeds = () => {
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/ivan-rilski"
         });
     }
 
@@ -46,7 +45,7 @@ function IvanRilski(){
                   date: date,
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/ivan-rilski"
           }).then((res) => console.log(res))
       }
   
@@ -60,7 +59,7 @@ function IvanRilski(){
                 <ul>
                     <li><b>Description:</b> UMHAT "St. Ivan Rilski EAD is a leader in high-tech medical diagnostics and practice. What sets us apart from other hospitals is the combination of well-trained specialists, many of whom are pioneers in their field, the availability of the latest generation of medical equipment that allows us to perform medical activities of extreme complexity, and very good conditions for patients are accommodated in rooms with 1, 2, 3 beds, each with private bathroom.</li>
                     <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
+        
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed

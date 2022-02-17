@@ -11,7 +11,6 @@ function Serdika(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [freeBeds, setFreeBeds] = useState(0);
-    const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
@@ -21,15 +20,15 @@ function Serdika(){
         axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/serdika"
         })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+        .then((res) =>setFreeBeds(res.data[0].freeBeds));
     }
     const updateBeds = () => {
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/serdika"
         });
     }
 
@@ -46,7 +45,7 @@ function Serdika(){
                   date: date,
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/serdika"
           }).then((res) => console.log(res))
       }
   
@@ -55,12 +54,10 @@ function Serdika(){
             <Container>
             <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">MULTIPROFILE HOSPITAL FOR ACTIVE TREATMENT "SERDIKA" Ltd.</h1>
             <Row>
-            <Col>
-                    
+            <Col>   
                 <ul>
                     <li><b>Description:</b> MULTIPROFILE HOSPITAL FOR ACTIVE TREATMENT "SERDIKA" Ltd. for more than a decade is a leading medical institution in the group of Medical Complex "Serdika", including Multidisciplinary Hospital for long-term treatment and rehabilitation, Hospice, Medical Practice, Nursing Center and Residence doctors. Their model of comprehensive medical care is followed and copied by other medical institutions, but the constant efforts to develop and improve our medical skills, combined with a Christian attitude towards patients makes us leaders in the field of practical medicine.</li>
                     <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed

@@ -11,7 +11,7 @@ function SvetaSofia(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [freeBeds, setFreeBeds] = useState(0);
-    const [covidPatients, setCovidPatients] = useState(0);
+    //const [covidPatients, setCovidPatients] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
@@ -21,15 +21,15 @@ function SvetaSofia(){
         axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/sveta-sofia"
         })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds) && setCovidPatients(res.data[0].covidPatients) );
+        .then((res) =>setFreeBeds(res.data[0].freeBeds));
     }
     const updateBeds = () => {
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
+            url: "http://localhost:3001/api/bookings/sveta-sofia"
         });
     }
 
@@ -46,7 +46,7 @@ function SvetaSofia(){
                   date: date,
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/sveta-sofia"
           }).then((res) => console.log(res))
       }
   
@@ -60,7 +60,6 @@ function SvetaSofia(){
                 <ul>
                     <li><b>Description:</b> In 1992, the St. Sophia Medical Center at 28 Georgi Sofiyski Street was registered with three offices: orthopedics and traumatology, obstetrics and gynecology, and internal medicine. During this time, the specialists working there have proven their high medical skills, patient care and leading medical technology. A natural continuation of the pre-hospital specialized medical activity started by the team was the creation of a modern medical institution, where specialists with European qualification can diagnose and treat in a cozy atmosphere with equipment at the most modern level.</li>
                     <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <li><b>Number of patients with COVID-19:</b> {getBeds()}{covidPatients} </li>
                     <Image src={picture} rounded="false"/>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed
