@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Container, Row,Col, Form, Button} from 'react-bootstrap'
-// import './Registration.css'
+import './Registration.css'
 import axios from 'axios'
 import validation from './registerValidation'
 import { Navigate } from 'react-router-dom'

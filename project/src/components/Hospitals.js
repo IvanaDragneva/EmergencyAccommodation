@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Container, Navbar, Nav} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './Hospitals.css'
-import Tokuda from './hospitals/Tokuda';
 
 class Hospitals extends Component {
     render() {
@@ -11,22 +10,28 @@ class Hospitals extends Component {
                 <h2>Here are all the partner hospitals we work with:</h2>
                 <ol>
                     <li>
-                        <Link to='Tokuda'>Acibadem CityClinic Tokuda</Link>
+                        <Link to='Tokuda'>&#10146; Acibadem CityClinic Tokuda</Link>
                     </li>
                     <li>
-                        <a href="https://www.vtorambal.com/">Vtora MBAL - Sofia EAD - Sofia</a>
+                        <Link to='WtoraBolnica'>&#10146; Second Multiprofile Hospital for Active Treatment - EAD, Sofia</Link>
                     </li>
                     <li>
-                        <a href="https://www.pirogov.eu/bg/">UMBALSM Pirogov</a>
+                        <Link to = 'Pirogov'>&#10146; UMBALSM Pirogov</Link>
                     </li>
                     <li>
-                        <a href="https://mbalserdika.com/">MBAL Serdika EOOD - Sofia</a>
+                        <Link to='MBAL_Serdika'>&#10146; MULTIPROFILE HOSPITAL FOR ACTIVE TREATMENT "SERDIKA" Ltd.</Link>
                     </li>
                     <li>
-                        <a href="https://mbal-sofia.com/">MBAL - Sveta Sofia EOOD - Sofia</a>
+                        <Link to='St.Sophia'>&#10146; St. Sophia Medical Center</Link>
                     </li>
                     <li>
-                        <a href="https://acibademcityclinic.bg/tokuda">Acibadem CityClinic Tokuda</a>
+                        <Link to='St.Ivan_Rilski'>&#10146; UMHAT "St. Ivan Rilski" EAD</Link>
+                    </li>
+                    <li>
+                        <Link to='Military_Medical_Academy'>&#10146; Military Medical Academy</Link>
+                    </li>
+                    <li>
+                        <Link to='Nadezhda'>&#10146; Hospital Nadezhda</Link>
                     </li>
                 </ol>
             </div>
