@@ -1,14 +1,25 @@
-import styles from  './Welcome-page.module.css';
+import './Welcome-page-registered.css';
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import backgroundImg from "../pictures/main-page.png";
-import {Container, Navbar, Nav} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import {Container, Navbar, Nav, Image, Button, NavDropdown} from "react-bootstrap";
+import {logout} from './logout'
 
+//import axios from 'axios'
+
+// const authToken = localStorage.getItem('access-token');
+// console.log(authToken);
+// const logout = () => {
+//     axios({
+//         method: "POST",
+//         headers: {
+//             'access-token': authToken
+//         },
+//         url: "http://localhost:3001/api/users/logout"
+//     })
+// }
 class WelcomePage extends Component {
     render() {
         return (
-            <div className={styles.apply}>
+            <div>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -18,23 +29,14 @@ class WelcomePage extends Component {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link>
-                                    <Link to="WelcomePage">Home</Link>
-                                </Nav.Link>
+                                <Nav.Link>Home</Nav.Link>
                                 <Nav.Link>News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
-                                <Nav.Link>
-                                    <Link to="Hospitals">Hospitals</Link>
-                                </Nav.Link>
-
+                                <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
-                                <Nav.Link>
-                                    <Link to="Login">Log in</Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link to="Registration">Register</Link>
-                                </Nav.Link>
+                                <Nav.Link onClick={logout}>Logout</Nav.Link>
+                                <Nav.Link>Change password</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

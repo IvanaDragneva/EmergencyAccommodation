@@ -1,3 +1,4 @@
+import WelcomePageRegistered from "./components/Welcome-page-registered"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Registration from './components/Registration'
 import Questionnaire from './containers/Questionnaire';
@@ -13,24 +14,12 @@ import IvanRilski from './components/hospitals/IvanRilski';
 import MilitaryMedicalAcademy from './components/hospitals/MilitaryMedicalAcademy';
 import Nadezhda from './components/hospitals/Nadezhda';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import './App.css';
 
-//import './App.css';
-
-
-// const RouterApp = () => {
-//   let routes = useRoutes([
-//   //{ path: "/", element: <WelcomePageNotRegistered /> },
-//   //{ path: "/welcome-page-registered", element: <WelcomePage /> },
-//     { path: "/login", element: <Login /> },
-//     { path: "/registration", element: <Registration /> },
-//   ]);
-//   return routes;
-// };
 function App() {
   return (
     <div className="App">
       <Router>
-      <WelcomePage/>
       <Routes>
         <Route path='/Home' element={<WelcomePage/>}/>
         <Route path='/Hospitals' element={<Hospitals/>}/>
@@ -46,6 +35,7 @@ function App() {
       </Routes>
       </Router>
     </div>
-  )}
+  );
+}
 
 export default App;
