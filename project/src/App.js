@@ -18,15 +18,13 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ChangePassword from "./components/ChangePassword";
 import './App.css';
 import News from './components/News'
-import NavigationBar from "./components/NavigationBar";
 
 function App() {
   return (
     <div className="App">
      <Router>
-       <NavigationBar />
       <Routes>
-        <Route path='/Home' element={<WelcomePage/>}/>
+        <Route path='/' element={<WelcomePage/>}/>
         <Route path='/Hospitals' element={<Hospitals/>}/>
         <Route path='/About' element={<About/>}/>
         <Route path='/Login' element={<Login/>}/>
@@ -38,6 +36,7 @@ function App() {
         <Route path='/Hospitals/St.Sophia' element={<SvetaSofia/>}/>
         <Route path='/Hospitals/St.Ivan_Rilski' element={<IvanRilski/>}/>
         <Route path='/Hospitals/Nadezhda' element={<Nadezhda/>}/>
+        <Route path='/Hospitals/Military_Medical_Academy' element={<MilitaryMedicalAcademy/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/registration' element={<Registration/>}/>
         <Route path='/welcome-page-registered' element={<WelcomePageRegistered/>}/>
