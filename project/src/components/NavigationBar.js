@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import {Container, Navbar, Nav, Image, Button, NavDropdown} from "react-bootstrap";
-import {logout} from './logout'
-import BackgroundImage from './BackgroundImage';
+import {Container, Navbar, Nav} from "react-bootstrap";
 
-class WelcomePage extends Component {
+class NavigationBar extends Component {
     render() {
         return (
-            <div style={{ 
-                backgroundImage: `url("../pictures/main-page.png")` 
-              }}>
+            <div>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -19,21 +15,17 @@ class WelcomePage extends Component {
                                 navbarScroll
                             >
                                 <Nav.Link>Home</Nav.Link>
-                                <Nav.Link href="/news">News</Nav.Link>
                                 <Nav.Link>About</Nav.Link>
-                                <Nav.Link>Hospitals</Nav.Link>
                             </Nav>
                             <Nav className={"justify-content-end"}>
-                                <Nav.Link  href="/" onClick={logout}>Logout</Nav.Link>
-                                <Nav.Link href="/update">Change password</Nav.Link>
+                                <Nav.Link href="/login">Log in</Nav.Link>
+                                <Nav.Link href="/registration">Register</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-                <BackgroundImage/>
             </div>
-        );
+        )
     }
 }
-
-export default WelcomePage;
+export default NavigationBar;

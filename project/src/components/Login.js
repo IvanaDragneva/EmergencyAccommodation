@@ -7,6 +7,7 @@ function Login(){
     const [firstName, setFirstName] = useState("");
     const [password, setPassword] = useState("");
     const [isLogged, setIsLogged] = useState(false);
+    const [loginStatus, setLoginStatus] = useState("");
 
     const login = (event) => {
         event.preventDefault();
@@ -20,10 +21,11 @@ function Login(){
              url: "http://localhost:3001/api/users/login"
          })
          .then((res) => {
-             console.log(res);
             if (res.status === 201) {
                 setIsLogged(true); 
-              }
+            }else{
+                setLoginStatus(res.data.message)
+            }
             const token = res.data;
             localStorage.setItem('auth-token', token);
          })
@@ -60,6 +62,7 @@ function Login(){
                                 <Button variant="success btn-block" type="submit" onClick={login}>
                                     Log in
                                 </Button>
+                                <h6>{loginStatus}</h6>
                             </Form>
                         </Col>
                     </Row>
