@@ -22,7 +22,9 @@ class WelcomePage extends Component {
                                     <Link to="WelcomePage">Home</Link>
                                 </Nav.Link>
                                 <Nav.Link>News</Nav.Link>
-                                <Nav.Link>About</Nav.Link>
+                                <Nav.Link>
+                                    <Link to="About">About</Link>
+                                </Nav.Link>
                                 <Nav.Link>
                                     <Link to="Hospitals">Hospitals</Link>
                                 </Nav.Link>

@@ -1,7 +1,6 @@
 import WelcomePageRegistered from "./components/Welcome-page-registered"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Registration from './components/Registration'
-import Questionnaire from './containers/Questionnaire';
 import Login from './components/Login';
 import Tokuda from './components/hospitals/Tokuda';
 import WtoraBolnica from './components/hospitals/WtoraBolnica';
@@ -13,6 +12,7 @@ import SvetaSofia from './components/hospitals/SvetaSofia';
 import IvanRilski from './components/hospitals/IvanRilski';
 import MilitaryMedicalAcademy from './components/hospitals/MilitaryMedicalAcademy';
 import Nadezhda from './components/hospitals/Nadezhda';
+import About from './components/About';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 
@@ -23,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/Home' element={<WelcomePage/>}/>
         <Route path='/Hospitals' element={<Hospitals/>}/>
+        <Route path='/About' element={<About/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Registration' element={<Registration/>}/>
         <Route path='/Hospitals/Tokuda' element={<Tokuda/>}/>
