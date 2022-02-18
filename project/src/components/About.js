@@ -6,19 +6,20 @@ class About extends Component {
         return(
             <div>
                 <h2 className="shadow-sm text-success mt-5 p-3 text-center rounded">Hi, there! Welcome to our app!</h2>
-                <div className='section'>
+                <div className='inlineDisplay'>
+                <div lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                     <h4>Who are we?</h4>
                     <p>&#10146; We are a couple of students, currently studying at university.</p>
                     <p>&#10146; With the knowledge, gained from our education, we have managed to create an application that could help modern hospitals' accommodation.</p>
                 </div>
-                <br/>
-                <div className='section'>
+                <span className='offset'/>
+                <div lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                     <h4>What is this app about?</h4>
                     <p>&#10146; The idea behind this app is to make the accommodation at hospitals a lot easier.</p>
                     <p>&#10146; Here you can save beds at certain hospitals, see how many free spots are left, and leave a review for your visit there.</p>
                 </div>
-                <br/>
-                <div className='section'>
+                </div>
+                <div lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                     <h4>How does the app work?</h4>
                     <p>&#10146; First, log in to your account. If you don't have an account, register first.</p>
                     <p>&#10146; To see the list of hospitals that are registered in the app, click on "Hospitals" on the navigation bar above.</p>

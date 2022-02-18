@@ -1,6 +1,14 @@
 .section {
     border-radius: 20px;
-    border-color: #bff5c4 ;
+    border-color: #f2f8f2 ;
     border-style: solid;
     padding: 10px;
+}
+.inlineDisplay {
+    display: inline-flex;
+    margin-left: 270px;
+    margin-bottom: 50px;
+}
+.offset {
+    margin-left: 10px;
 }
