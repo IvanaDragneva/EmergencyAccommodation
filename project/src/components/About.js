@@ -19,6 +19,7 @@ class About extends Component {
                     <p>&#10146; Here you can save beds at certain hospitals, see how many free spots are left, and leave a review for your visit there.</p>
                 </div>
                 </div>
+                <br/>
                 <div lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                     <h4>How does the app work?</h4>
                     <p>&#10146; First, log in to your account. If you don't have an account, register first.</p>

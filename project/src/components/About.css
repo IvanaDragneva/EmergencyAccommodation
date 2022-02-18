@@ -1,13 +1,9 @@
-.section {
-    border-radius: 20px;
-    border-color: #f2f8f2 ;
-    border-style: solid;
-    padding: 10px;
-}
 .inlineDisplay {
-    display: inline-flex;
-    margin-left: 270px;
-    margin-bottom: 50px;
+    display: flex;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%
 }
 .offset {
     margin-left: 10px;
