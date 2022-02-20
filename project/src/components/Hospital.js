@@ -1,68 +1,68 @@
 import React, { useEffect, useState} from 'react';
 import {Button, Modal, Container, Row, Col, Form} from "react-bootstrap";
-import './HospitalsStyle.css'
-import picture from '../../pictures/tokuda.png'
-import Image from 'react-bootstrap/Image'
+import '../components/hospitals/HospitalsStyle.css'
 import axios from 'axios';
-import CommentForm from '../CommentForm'
+import CommentForm from './CommentForm'
 
-function Tokuda(){
+function Hospital({id}){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [freeBeds, setFreeBeds] = useState(0);
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [date, setDate] = useState("");
- 
-
-    const getBeds = () => {
+    const [info, setInfo] = useState({hospitalName: "", freeBeds: "", description: ""});
+    
+    useEffect(() => {
         axios({
-            method: "GET",
+            method: "PUT",
+            data: {
+               id: id
+            },
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
-        })
-        .then((res) =>setFreeBeds(res.data[0].freeBeds));
-    }
+            url: "http://localhost:3001/api/bookings/info"
+             })
+             .then((res) => setInfo({
+                 hospitalName: res.data[0].name, 
+                 freeBeds: res.data[0].freeBeds, 
+                 description: res.data[0].description
+                }));
+    }, [])
+
     const updateBeds = () => {
         axios({
             method: "PUT",
             withCredentials: true,
-            url: "http://localhost:3001/api/bookings/tokuda"
-        });
+            data: {
+                id: id
+            },
+            url: "http://localhost:3001/api/bookings/book"
+        }).then((res => setInfo({...info, freeBeds: res.data[0].freeBeds})));
     }
 
-    function update(){
-        updateBeds();
-        return setFreeBeds(freeBeds - 1)
-    }
-     const bookBed = (event) => {
+    const bookBed = (event) => {
           axios({
               method: "POST",
               data: {
                   firstName: firstName,
                   email: email,
                   date: date,
+                  hospitalName: info.hospitalName
               },
               withCredentials: true,
-              url: "http://localhost:3001/api/bookings/tokuda"
+              url: "http://localhost:3001/api/bookings/book"
           }).then((res) => console.log(res))
       }
   
         return (
             <div>
             <Container>
-            <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Acibadem City Clinic Tokuda Hospital</h1>
-            <Row>
-            <Col>
-                    
+            <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">{info.hospitalName}</h1>
+           <Row>
+            <Col>   
                 <ul>
-                    <li><b>Description:</b> Acibadem City Clinic Tokuda Hospital is the largest medical facility in Bulgaria, 
-                        built and developed with private investments. It was opened in 2006 as part of a Japanese medical group, 
-                        owned by the physician and entrepreneur Dr. Torao Tokuda. Since 2016 Tokuda Hospital is part of the largest 
-                        hospital group in Bulgaria – Acibadem City Clinic.</li>
-                    <li><b>Number of free beds in the hospital:</b> {getBeds()}{freeBeds}</li>
-                    <Image src={picture} rounded="false"/>
+                    <li><b>Description:</b> {info.description}</li>
+                    <li><b>Number of free beds in the hospital:</b> {info.freeBeds}</li>
                     <Button variant="success btn-block" type="submit" onClick={handleShow}>
                         Save a bed
                     </Button>
@@ -135,7 +135,7 @@ function Tokuda(){
                         </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
-                        <Button variant="success" onClick={() => {bookBed(); update(); handleClose();}}>Save Changes</Button>
+                        <Button variant="success" onClick={() => {bookBed(); updateBeds(); handleClose();}}>Save Changes</Button>
                     </Modal.Footer>
                     </Modal>
                 </ul>
@@ -143,10 +143,10 @@ function Tokuda(){
                 <Col>
                 <CommentForm></CommentForm>
                 </Col>
-                </Row>
+                </Row>               
                 </Container>
             </div>
         );
 }
 
-export default Tokuda;
+export default Hospital;
