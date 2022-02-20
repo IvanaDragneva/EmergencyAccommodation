@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {Button, Modal, Container, Row, Col, Form} from "react-bootstrap";
-import '../components/hospitals/HospitalsStyle.css'
+import './HospitalsStyle.css'
 import axios from 'axios';
 import CommentForm from './CommentForm'
 
