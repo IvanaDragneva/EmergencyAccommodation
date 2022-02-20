@@ -1,10 +1,12 @@
 import React, { useEffect, useState} from 'react';
+import { useParams } from "react-router-dom";
 import {Button, Modal, Container, Row, Col, Form} from "react-bootstrap";
 import './HospitalsStyle.css'
 import axios from 'axios';
 import CommentForm from './CommentForm'
 
-function Hospital({id}){
+function Hospital(){
+    let {id} = useParams();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
